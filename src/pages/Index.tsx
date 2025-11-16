@@ -1,41 +1,21 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
 import ProductCard from "@/components/ProductCard";
+import SchemaMarkup from "@/components/SchemaMarkup";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { products, brands } from "@/data/products";
 import { TrendingUp, Award, Shield, Star } from "lucide-react";
+import { generateWebSiteSchema } from "@/lib/schema-markup";
 
 export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SchemaMarkup schema={generateWebSiteSchema()} />
       <Header />
       
-      {/* Hero Section */}
-      <section className="gradient-hero text-white py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <Badge className="mb-4 bg-white/20 text-white border-white/40">
-              #1 em Reviews de Televisores
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Melhores Reviews de TVs do Brasil
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90">
-              Análises detalhadas com foco em qualidade, procedência de marcas e avaliações reais de consumidores
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" variant="secondary" asChild className="text-lg">
-                <Link to="#produtos">Ver Produtos</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg bg-white/10 border-white/40 text-white hover:bg-white/20" asChild>
-                <Link to="/sobre">Sobre Nós</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Features */}
       <section className="py-12 bg-card border-b">
